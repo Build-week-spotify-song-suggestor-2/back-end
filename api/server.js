@@ -10,7 +10,7 @@ server.use(cors());
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.send("Welcome");
+  res.send("Welcome To The Spotify Song Suggester API!");
 });
 
 module.exports = server;
