@@ -5,10 +5,6 @@ const authenticate = require("./auth-middleware");
 const jwt = require("jsonwebtoken");
 const secrets = require("../config/secret");
 
-router.get("/", (req, res) => {
-  res.send("Welcome To The Spotify Song Suggester API!");
-});
-
 router.post("/register");
 
 router.post("/login");
