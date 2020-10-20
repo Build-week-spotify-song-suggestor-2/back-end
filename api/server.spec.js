@@ -15,4 +15,8 @@ describe("server.js", () => {
       expect(res.type).toBe("text/html");
     });
   });
+  it("Should return Welcome To The Spotify Song Suggester API!", async () => {
+    const res = await request(server).get("/");
+    expect(res.text).toEqual("Welcome To The Spotify Song Suggester API!");
+  });
 });
