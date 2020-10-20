@@ -2,7 +2,6 @@ const request = require("supertest");
 const server = require("./server");
 const db = require("../data/db-config");
 const { truncate } = require("../data/db-config");
-const testUser = { username: "testUsername", password: "testPassword" };
 
 describe("server.js", () => {
   describe("Grab initial server", () => {
@@ -18,5 +17,12 @@ describe("server.js", () => {
   it("Should return Welcome To The Spotify Song Suggester API!", async () => {
     const res = await request(server).get("/");
     expect(res.text).toEqual("Welcome To The Spotify Song Suggester API!");
+  });
+  it("Should register new users", async () => {
+    const res = await request(server)
+      .post("/api/auth/register")
+      .send({ username: "testUsername", password: "testPassword" })
+      .set("Accept", "application/json");
+    expect(res.status).toBe(201);
   });
 });
