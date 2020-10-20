@@ -37,4 +37,10 @@ describe("server.js", () => {
       .send({ username: "Username", password: "password" });
     expect(res.status).toBe(201);
   });
+  it("Should delete users", async () => {
+    const res = await request(server)
+      .delete("/api/auth/delete")
+      .send({ username: "testUsername", password: "testPassword" });
+    expect(res.status).toBe(400);
+  });
 });
