@@ -30,6 +30,6 @@ function remove(username) {
   return db("users").where({ username }).del();
 }
 
-function update(changes) {
+function update(changes, username) {
   return db("users").where({ username }).update(changes);
 }
