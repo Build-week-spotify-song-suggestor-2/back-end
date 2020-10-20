@@ -25,4 +25,16 @@ describe("server.js", () => {
       .set("Accept", "application/json");
     expect(res.status).toBe(201);
   });
+  it("Should login existing users", async () => {
+    const res = await request(server)
+      .post("/api/auth/login")
+      .send({ username: "testUsername", password: "testPassword" });
+    expect(res.status).toBe(200);
+  });
+  it("Should update users", async () => {
+    const res = await request(server)
+      .put("/api/auth/update")
+      .send({ username: "Username", password: "password" });
+    expect(res.status).toBe(201);
+  });
 });
