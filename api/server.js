@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const authRouter = require("../auth/auth-router");
 const musicRouter = require("../songs/songs-router");
+const userRouter = require("../users/users-router");
 const server = express();
 
 server.use(morgan("dev"));
@@ -13,6 +14,7 @@ server.use(express.json());
 
 server.use("/api/auth", authRouter);
 server.use("/api/music", musicRouter);
+server.use("/api/users", userRouter);
 
 server.get("/", (req, res) => {
   res.send("Welcome To The Spotify Song Suggester API!");
