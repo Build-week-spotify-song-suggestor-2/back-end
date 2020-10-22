@@ -16,6 +16,19 @@ router.post("/favs", (req, res) => {
     });
 });
 
+router.post("/singleTrack/data", (req, res) => {
+  const track_id = req.body.track_id;
+  axios
+    .get(`https://suggestify-api.herokuapp.com/image/${track_id}`)
+    .then((res) => {
+      res.json(res.data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ message: "Unable to retrieve graph", err: err });
+    });
+});
+
 //get all saved songs from favoriteSongs
 router.get("/:id/favs", (req, res) => {
   const id = req.params.id;
@@ -46,7 +59,7 @@ router.post("/singleTrack", (req, res) => {
 });
 
 //post to ds API
-router.post("/:id/fav/playlist", (req, res) => {
+router.post("/:id/favs/playlist", (req, res) => {
   const id = req.params.id;
   Tracks.getSavedTrack(id)
     .then((savedTracks) => {
