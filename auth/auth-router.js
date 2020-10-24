@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router(); // creates a router as a module, loads a middleware function in it, defines some routes, and mounts the router module on a path in the main app.
 const Users = require("../users/users-model");
 const bcrypt = require("bcryptjs");
 const authenticate = require("./auth-middleware");

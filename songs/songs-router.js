@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router(); // creates a router as a module, loads a middleware function in it, defines some routes, and mounts the router module on a path in the main app.
 const axios = require("axios");
 const Tracks = require("./songs-model");
 const authenticate = require("../auth/auth-middleware");
